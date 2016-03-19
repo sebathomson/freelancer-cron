@@ -1,0 +1,15 @@
+Since the last time, there have been <b>{% if (offers | length) == 0 %}zero{% else %}{{ offers | length }} new{% endif %} offers</b>.
+<br>
+<br>
+<br>
+{% for offer in offers %}
+    <b>ID</b>: {{ offer.id_offer }} <br>
+    <b>NAME</b>: {{ offer.name_offer }} <br>
+    <b>DESC</b>: {{ offer.description_offer }} <br>
+    <b>URL</b>: {{ freelancer_url }}{{ offer.url_offer }} <br>
+    {% if loop.last == false %}
+        ================================================= <br> <br>
+    {% endif %}
+{% else %}
+:(
+{% endfor %}
